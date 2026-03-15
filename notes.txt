@@ -24,7 +24,7 @@ Issues:
 
 3.)
     [Problem] Error 1. Too few arguments.
-    [Solution] 
+    [Solution] Added Android to the bash command. 
 
 
 3.)

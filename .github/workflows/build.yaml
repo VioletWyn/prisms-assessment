@@ -27,5 +27,7 @@ jobs:
 
       # CLI call to simulated upload process
       - name: Upload
+        env:
+          UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
           bash upload.sh Android build/android
