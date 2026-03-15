@@ -22,11 +22,11 @@ Issues:
     [Solution] Removed ' " ' from the EOF.
 
 
-3.)
+5.)
     [Problem] Error 1. Too few arguments.
     [Solution] Added Android to the bash command. 
 
 
-3.)
-    [Problem] 
-    [Solution] 
+6.)
+    [Problem] Error 1. Syntax and missing key.
+    [Solution] Fixed Android to android and added a secret token.
