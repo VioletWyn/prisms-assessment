@@ -28,6 +28,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set Version
+        run: |
+          VERSION="build-${{ github.run_number }}"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
         
       # CLI call to simulated build process
       - name: Run Build
