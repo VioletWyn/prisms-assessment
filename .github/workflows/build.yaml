@@ -35,6 +35,7 @@ jobs:
 
       # CLI call to simulated upload process
       - name: Upload
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
