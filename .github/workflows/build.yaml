@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: profile-data-${{ env.APP_NAME }}-${{ env.VERSION }}
-          path: build/Android/*.pro
+          path: cli/build/Android/*.pro
           retention-days: 30
 
       # CLI call to simulated upload process
@@ -55,4 +55,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh android build/Android/${{ env.APP_NAME }}.apk
+          bash upload.sh android build/Android/${{ env.APP_NAME }}-${{ env.VERSION }}.apk
