@@ -23,7 +23,7 @@ jobs:
       # CLI call to simulated build process
       - name: Run Build
         run: |
-          ./build.sh --platform android --project-name ${{ github.event.inputs.app_name }}
+          build.sh --platform android --project-name ${{ github.event.inputs.app_name }}
 
       # CLI call to simulated upload process
       - name: Upload
