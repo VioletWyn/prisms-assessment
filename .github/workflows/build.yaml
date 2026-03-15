@@ -30,4 +30,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh Android build/android
+          bash upload.sh android build/android
