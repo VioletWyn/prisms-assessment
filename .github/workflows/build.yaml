@@ -10,6 +10,8 @@ on:
         required: false
         description: "Type the name of your build."
   push:
+    branches:
+      - main
     tags:
       - 'v*.*.*'
 
