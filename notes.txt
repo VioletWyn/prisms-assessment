@@ -30,3 +30,20 @@ Issues:
 6.)
     [Problem] Error 1. Syntax and missing key.
     [Solution] Fixed Android to android and added a secret token.
+
+
+6.)
+    [Problem]
+    [Solution] 
+
+
+6.)
+    [Problem] 
+    [Solution] 
+
+
+6.)
+    [Problem] 
+    [Solution] 
+
+    

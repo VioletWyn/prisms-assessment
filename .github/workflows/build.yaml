@@ -35,4 +35,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh android build/Android
+          bash upload.sh android build/Android/${{ github.event.inputs.app_name }}.apk
