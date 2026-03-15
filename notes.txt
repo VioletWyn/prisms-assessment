@@ -42,6 +42,21 @@
 
 
 8.)
+    [Problem] Need to only upload when on prod(main) and the pipeline is triggered by a push event.
+    [Solution] Add a conditional statement to prevent the upload from happening any other time. 
+
+
+9.)
+    [Problem] 
+    [Solution] 
+
+
+10.)
+    [Problem] 
+    [Solution] 
+
+
+11.)
     [Problem] 
     [Solution] 
 

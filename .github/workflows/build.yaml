@@ -1,6 +1,7 @@
 name: Run Build
 
 on:
+  
   workflow_dispatch:
     inputs:
       app_name:
@@ -9,6 +10,8 @@ on:
         required: false
         description: "Type the name of your build."
   push:
+    tags:
+      - 'v*.*.*'
 
 env:
   APP_NAME: ${{ github.event.inputs.app_name || github.event.repository.name }}
@@ -28,11 +31,6 @@ jobs:
       - name: Run Build
         run: |
           bash build.sh --platform Android --project-name ${{ env.APP_NAME }}
-
-      - name: Debug — List Files  
-        run: |
-          ls -la
-          ls -la build/ || echo "build/ folder not found!"
 
       # CLI call to simulated upload process
       - name: Upload
