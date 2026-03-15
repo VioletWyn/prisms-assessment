@@ -2,6 +2,12 @@ name: Run Build
 
 on:
   workflow_dispatch:
+    inputs:
+      app_name:
+        type: string
+        default: 'My-Prism-App'
+        required: false
+        description: "Type the name of your build."
 
 jobs:
   build:
