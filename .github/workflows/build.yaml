@@ -46,13 +46,16 @@ jobs:
                   --version ${{ env.VERSION }} \
                   --profile
 
-      # Stop Timer
-      - name: Build timer Stop
+      # Sets the metrics of the duration and size of the build.
+      - name: Build Metrics
         run: |
           BUILD_END=$(date +%s)
           DURATION=$((BUILD_END - BUILD_START))
+          ARTIFACT_SIZE=$(du -sh build/Android/ | cut -f1)
           echo "BUILD_DURATION=${DURATION}s" >> $GITHUB_ENV
+          echo "ARTIFACT_SIZE=$ARTIFACT_SIZE" >> $GITHUB_ENV
           echo "Build took ${DURATION} seconds"
+          echo "Artifact size: $ARTIFACT_SIZE"
         
       - name: Upload Profiling to GitHub
         uses: actions/upload-artifact@v6
