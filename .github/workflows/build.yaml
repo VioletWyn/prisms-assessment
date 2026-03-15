@@ -24,7 +24,7 @@ jobs:
       - name: Run Build
         run: |
           appName = "Test App"
-          ./build.sh --platform android --project-name ${$appName}
+          ./build.sh --platform android --project-name ${{ github.event.inputs.app_name }}
 
       # CLI call to simulated upload process
       - name: Upload
