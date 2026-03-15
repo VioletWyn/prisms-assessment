@@ -47,8 +47,8 @@
 
 
 9.)
-    [Problem] 
-    [Solution] 
+    [Problem] Need to add versioning.
+    [Solution] Opted for automating build numbers as version control. However, I want to look into adding tags later.
 
 
 10.)
