@@ -13,7 +13,7 @@ Issues:
 
 
 3.)
-    [Problem]  Error 1. "android" syntax
+    [Problem]  Exit 1. "android" syntax
     [Solution] Fixed android -> "Android"
 
 
@@ -23,18 +23,18 @@ Issues:
 
 
 5.)
-    [Problem] Error 1. Too few arguments.
+    [Problem] Exit 1. Too few arguments.
     [Solution] Added Android to the bash command. 
 
 
 6.)
-    [Problem] Error 1. Syntax and missing key.
+    [Problem] Exit 1. Syntax and missing key.
     [Solution] Fixed Android to android and added a secret token.
 
 
-6.)
-    [Problem]
-    [Solution] 
+7.)
+    [Problem] Exit 1. Artifact was not uploading.
+    [Solution] The last argument pointed to the folder rather than the file.
 
 
 6.)
@@ -46,4 +46,3 @@ Issues:
     [Problem] 
     [Solution] 
 
-    
