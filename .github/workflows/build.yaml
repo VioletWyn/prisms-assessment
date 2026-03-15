@@ -33,6 +33,10 @@ jobs:
         run: |
           VERSION="build-${{ github.run_number }}"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      # Start Timer
+      - name: Build timer Start
+        run: echo "BUILD_START=$(date +%s)" >> $GITHUB_ENV
         
       # CLI call to simulated build process
       - name: Run Build
@@ -41,8 +45,16 @@ jobs:
                   --project-name ${{ env.APP_NAME }} \
                   --version ${{ env.VERSION }} \
                   --profile
+
+      # Stop Timer
+      - name: Build timer Stop
+        run: |
+          BUILD_END=$(date +%s)
+          DURATION=$((BUILD_END - BUILD_START))
+          echo "BUILD_DURATION=${DURATION}s" >> $GITHUB_ENV
+          echo "Build took ${DURATION} seconds"
         
-      - name: Upload Profiling Data
+      - name: Upload Profiling to GitHub
         uses: actions/upload-artifact@v6
         with:
           name: profile-data-${{ env.APP_NAME }}-${{ env.VERSION }}
@@ -50,7 +62,7 @@ jobs:
           retention-days: 30
 
       # CLI call to simulated upload process
-      - name: Upload
+      - name: Upload To CDN
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}

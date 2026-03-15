@@ -52,13 +52,15 @@
 
 
 10.)
-    [Problem] 
-    [Solution] 
+    [Problem] Versioning broke the upload.
+    [Solution] Updated the upload path to match the new file ID.
 
+---------------------------------------------------------- Task 6 ----------------------------------------------------------------------
 
 11.)
-    [Problem] 
-    [Solution] 
+    [Problem] Need analytics. 
+    [Solution] Looked at a variety of options including: built in --profile tag, measuring time, uploading artifacts, measuring Artifact
+               size and more. For the project, I went with the ones mentioned.  
 
 
 6.)
