@@ -25,6 +25,11 @@ jobs:
         run: |
           bash build.sh --platform Android --project-name ${{ github.event.inputs.app_name }}
 
+      - name: Debug — List Files  
+        run: |
+          ls -la
+          ls -la build/ || echo "build/ folder not found!"
+
       # CLI call to simulated upload process
       - name: Upload
         env:
