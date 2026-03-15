@@ -8,6 +8,7 @@ on:
         default: 'My-Prism-App'
         required: false
         description: "Type the name of your build."
+  push:
 
 env:
   APP_NAME: ${{ github.event.inputs.app_name || github.event.repository.name }}

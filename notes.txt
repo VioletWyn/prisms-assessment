@@ -1,4 +1,6 @@
-Issues:
+                                                     Mark Down of Issues.
+
+---------------------------------------------------------- Task 4 --------------------------------------------------------------------------
 
 1.) 
     [Problem] Error 127.Workflow dispatch didn't have the necessary fields to run. 
@@ -36,8 +38,10 @@ Issues:
     [Problem] Exit 1. Artifact was not uploading.
     [Solution] The last argument pointed to the folder rather than the file.
 
+---------------------------------------------------------- Task 5 ----------------------------------------------------------------------
 
-6.)
+
+8.)
     [Problem] 
     [Solution] 
 
