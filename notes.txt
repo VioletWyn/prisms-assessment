@@ -18,12 +18,12 @@ Issues:
 
 
 4.)
-    [Problem] 
-    [Solution] 
+    [Problem] Error 2. EOF.
+    [Solution] Removed ' " ' from the EOF.
 
 
 3.)
-    [Problem] 
+    [Problem] Error 1. Too few arguments.
     [Solution] 
 
 
