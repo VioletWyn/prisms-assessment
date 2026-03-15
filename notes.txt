@@ -1,1 +1,32 @@
-This file left intentionally blank as an example file for you to fill in with your notes
+Issues:
+
+1.) 
+    [Problem] Error 127.Workflow dispatch didn't have the necessary fields to run. 
+    [Solution] Added the app_name variable to the inputs field, then gave it properties. Added all the fields should we decide to make it
+               required or change it to be different type in the future.
+
+
+2.)
+    [Problem] Error 126. Permissions were not available.
+    [Solution] Instead of trying to override permissions to execute, I instead option opted to bash the build.sh file to bypass permissions
+               and run the file.
+
+
+3.)
+    [Problem]  Error 1. "android" syntax
+    [Solution] Fixed android -> "Android"
+
+
+4.)
+    [Problem] 
+    [Solution] 
+
+
+3.)
+    [Problem] 
+    [Solution] 
+
+
+3.)
+    [Problem] 
+    [Solution] 
