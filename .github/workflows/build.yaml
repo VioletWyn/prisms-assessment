@@ -76,4 +76,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
+          bash upload.sh android build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
