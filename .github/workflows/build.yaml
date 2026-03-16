@@ -27,11 +27,11 @@ jobs:
       - platform: Android
         os: ubuntu-latest
         upload_platform: android
-        app_type: apk
+        artifact_ext: apk
       - platform: iOS
         os: macos-latest
         upload_platform: ios
-        app_type: ipa
+        artifact_ext: ipa
 
     defaults:
       run:
@@ -77,4 +77,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh ${{ matrix.upload_platform }} build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.app_type }}
+          bash upload.sh ${{ matrix.upload_platform }} build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
