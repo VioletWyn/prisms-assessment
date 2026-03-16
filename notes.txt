@@ -65,16 +65,15 @@
 
 ---------------------------------------------------------- Task 7 ----------------------------------------------------------------------
 
-7.)
-    [Problem] 
-    [Solution] 
+12.)
+    [Problem] Needed a solution for running on multiple devices.
+    [Solution] Opted for using a matrix. Had to remove instances of android and update them to match the matrix data for the relative device.
 
-6.)
-    [Problem] 
-    [Solution] 
 
-6.)
-    [Problem] 
+---------------------------------------------------------- Task 8 ----------------------------------------------------------------------
+
+13.)
+    [Problem] IMPROVISE
     [Solution] 
 
 

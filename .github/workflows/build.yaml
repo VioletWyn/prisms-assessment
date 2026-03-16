@@ -51,14 +51,14 @@ jobs:
           DURATION=$((BUILD_END - BUILD_START))
           echo "BUILD_DURATION=${DURATION}s" >> $GITHUB_ENV
 
-      # Sets the metrics of the duration and size of the build.
+      # Build Metric Display
       - name: Display Build Metrics
         run: |
           ARTIFACT_SIZE=$(du -sh build/${{ matrix.platform }}/ | cut -f1)
           echo "Artifact size: $ARTIFACT_SIZE"
           echo "Build took ${{ env.BUILD_DURATION }}"
           
-        
+      # Upload artifact to Github.
       - name: Upload Profiling to GitHub
         uses: actions/upload-artifact@v6
         with:
