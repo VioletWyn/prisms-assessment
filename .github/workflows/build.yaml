@@ -4,6 +4,8 @@ on:
   
   workflow_dispatch:
     inputs:
+      # Task 3 - Fix "appName: command not found"
+      # Task 4 - Custom name for artefact from input
       app_name:
         type: string
         default: 'My-Prism-App'
@@ -17,6 +19,7 @@ env:
 
 jobs:
   build:
+    # Task 7 - Add matrix strategy to perform multi-platform builds
     runs-on: ${{ matrix.os }} 
 
     strategy:
@@ -39,6 +42,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
+      # Task 7  
       # CLI call to simulated build process
       - name: Run Build
         run: |
@@ -51,6 +55,7 @@ jobs:
           DURATION=$((BUILD_END - BUILD_START))
           echo "BUILD_DURATION=${DURATION}s" >> $GITHUB_ENV
 
+      # Task 6 - Profile builds
       # Build Metric Display
       - name: Display Build Metrics
         run: |
@@ -68,6 +73,7 @@ jobs:
 
       # CLI call to simulated upload process
       - name: Upload To CDN
+        # Task 5 - Upload on push to production branch (main)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
