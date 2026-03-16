@@ -72,8 +72,33 @@
 
 ---------------------------------------------------------- Task 8 ----------------------------------------------------------------------
 
-13.)
-    [Problem] IMPROVISE
-    [Solution] 
+13.) Improvement thoughts
 
+    [a.] More definitive branch names. Right now, main is acting as our default production branch, but we should realistically have production be its own branch along with
+         branches like features, staging,  dev, and so on. 
+    
+    [b.] Better versioning with tags. Though I didn't get to it, I wanted to implement a tag system that falls back to the run number if the tag did not exist. The main benefit from
+         using the run number was because it's automatic and easier for testing. However, compared to git tags, they have less meaningful information. Run numbers only tell you
+         what iteration we are on. In comparison, tags would give more insight into the build itself as each number in vX.X.X represents important stages in the life cycle.
+
+    [c.] The metrics I give are a good start, however, it would be nice if we have more. A good next step would be to add device information to see if the issue is relative to
+         the machine. The more data we can supply to the enigeering team, the better chance we have at identifying the underlying problem. Additionally, it could be beneficial 
+         to export this data to a file, possibly as JSON, for us to automate parsing larger sets of data.
+
+    [d.] Better Commit Messages and local changes. I know of the existence of ways to test code locally (Docker I believe) before commiting and pushing the changes to github. However, I didn't
+         know if I had the time to set those systems up so I opted for using my time to better understand the code. That being said, my commit messages were lacking in terms
+         of any tag-type descriptors with common conventions.  Exmaple being- feature/description or hotfix/description.
+
+    [e.] Additionally, during my research, I discovered Dependabot which could be super beneficial for updating/maintaining github actions on a scheduled interval. I discovered this
+         namely because we were getting a Node.js deprecation warning. I did not change that action version in the could but we coul have changed to a more stable version or had the bot
+         maintain that for us so we wouldn't have to manually fix that every time an action from the market gets updated to another major or minor version. 
+
+    [f.] We also don't have a linter. It would be good to add a lint yaml that runs before even building the project. This should probably run on every branch too to ensure that 
+         syntax is kept consistent across the board. 
+    
+    [h.] Generic thing's I'd read about briefly but sure would help:
+            * Timeouts for github actions. By default, Github actions apparently can exist for 6 hours.
+            * Permissions. Not all jobs need all permissions.
+            * Caching. I saw that it's possible to cache actions/dependencies so we don't have to pull them over and over if they are used multiple times in a job.
+            * YAML Anchors / Reusable Workflows. At glance, they looked similiar, but the idea behind both looked to be avoiding redundancy 
 

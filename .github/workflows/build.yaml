@@ -1,7 +1,6 @@
 name: Run Build
 
 on:
-  
   workflow_dispatch:
     inputs:
       # Task 3 - Fix "appName: command not found"
@@ -28,11 +27,11 @@ jobs:
       - platform: Android
         os: ubuntu-latest
         upload_platform: android
-        artifact_ext: apk
+        app_type: apk
       - platform: iOS
         os: macos-latest
         upload_platform: ios
-        artifact_ext: ipa
+        app_type: ipa
 
     defaults:
       run:
@@ -78,4 +77,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh ${{ matrix.upload_platform }} build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
+          bash upload.sh ${{ matrix.upload_platform }} build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.app_type }}
