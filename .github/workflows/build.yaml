@@ -59,7 +59,7 @@ jobs:
           echo "Build took ${{ env.BUILD_DURATION }}"
           
       # Upload artifact to Github.
-      - name: Upload Profiling to GitHub
+      - name: Upload Github Artifact Profile 
         uses: actions/upload-artifact@v6
         with:
           name: profile-data-${{ matrix.platform }}-${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}
