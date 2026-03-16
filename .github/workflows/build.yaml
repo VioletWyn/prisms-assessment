@@ -66,8 +66,8 @@ jobs:
       - name: Upload Profiling to GitHub
         uses: actions/upload-artifact@v6
         with:
-          name: profile-data-${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}
-          path: cli/build/Android/*.pro
+          name: profile-data-${{ matrix.platform }}-${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}
+          path: cli/build/${{ matrix.platform }}/*.pro
           retention-days: 7
 
       # CLI call to simulated upload process
