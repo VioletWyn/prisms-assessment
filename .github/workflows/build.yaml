@@ -10,10 +10,6 @@ on:
         required: false
         description: "Type the name of your build."
   push:
-    branches:
-      - main
-    tags:
-      - 'v*.*.*'
 
 env:
   APP_NAME: ${{ github.event.inputs.app_name || github.event.repository.name }}
@@ -47,7 +43,7 @@ jobs:
       - name: Run Build
         run: |
           BUILD_START=$(date +%s)
-          bash build.sh --platform Android \
+          bash build.sh --platform ${{ matrix.platform }} \
                   --project-name ${{ env.APP_NAME }} \
                   --version ${{ env.BUILD_VERSION }} \
                   --profile
@@ -58,7 +54,7 @@ jobs:
       # Sets the metrics of the duration and size of the build.
       - name: Display Build Metrics
         run: |
-          ARTIFACT_SIZE=$(du -sh build/Android/ | cut -f1)
+          ARTIFACT_SIZE=$(du -sh build/${{ matrix.platform }}/ | cut -f1)
           echo "Artifact size: $ARTIFACT_SIZE"
           echo "Build took ${{ env.BUILD_DURATION }}"
           
@@ -76,5 +72,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh ${{ matrix.upload_platform }} \
-          build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.VERSION }}.${{ matrix.artifact_ext }}
+          bash upload.sh ${{ matrix.upload_platform }} build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
