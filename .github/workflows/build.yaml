@@ -17,10 +17,24 @@ on:
 
 env:
   APP_NAME: ${{ github.event.inputs.app_name || github.event.repository.name }}
+  BUILD_VERSION: "build-${{ github.run_number }}"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }} 
+
+    strategy:
+     matrix:
+      include:
+      - platform: Android
+        os: ubuntu-latest
+        upload_platform: android
+        artifact_ext: apk
+      - platform: iOS
+        os: macos-latest
+        upload_platform: ios
+        artifact_ext: ipa
+
     defaults:
       run:
         working-directory: ./cli
@@ -28,19 +42,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Set Version
-        run: |
-          VERSION="build-${{ github.run_number }}"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
         
       # CLI call to simulated build process
       - name: Run Build
         run: |
-          BUILD_START=$(date +%s)  
+          BUILD_START=$(date +%s)
           bash build.sh --platform Android \
                   --project-name ${{ env.APP_NAME }} \
-                  --version ${{ env.VERSION }} \
+                  --version ${{ env.BUILD_VERSION }} \
                   --profile
           BUILD_END=$(date +%s)
           DURATION=$((BUILD_END - BUILD_START))
@@ -57,9 +66,9 @@ jobs:
       - name: Upload Profiling to GitHub
         uses: actions/upload-artifact@v6
         with:
-          name: profile-data-${{ env.APP_NAME }}-${{ env.VERSION }}
+          name: profile-data-${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}
           path: cli/build/Android/*.pro
-          retention-days: 30
+          retention-days: 7
 
       # CLI call to simulated upload process
       - name: Upload To CDN
@@ -67,4 +76,4 @@ jobs:
         env:
           UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
         run: |
-          bash upload.sh android build/Android/${{ env.APP_NAME }}-${{ env.VERSION }}.apk
+          build/${{ matrix.platform }}/${{ env.APP_NAME }}-${{ env.BUILD_VERSION }}.${{ matrix.artifact_ext }}
